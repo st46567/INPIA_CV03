@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Issue Report</title>
+    <link rel="stylesheet" href="./style.css" />
+    <meta charset="UTF-8" />
+</head>
+<body>
+<div class="container">
+    <form th:object="${issueReport}" th:action="@{/issuereport}" method="post">
+        <textarea placeholder="Description of the issue" rows="5" id="description" name="description" th:field="*{description}"></textarea>
+
+        <textarea placeholder="URL" rows="5" id="url" name="url" th:field="*{url}"></textarea>
+
+        <input type="submit" value="Submit"/>
+    </form>
+</div>
+</body>
+</html>
