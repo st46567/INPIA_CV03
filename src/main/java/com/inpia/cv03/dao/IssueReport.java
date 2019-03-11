@@ -2,9 +2,8 @@ package com.inpia.cv03.dao;
 
 import org.springframework.web.bind.annotation.ModelAttribute;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Optional;
 
 @Entity
 public class IssueReport {
@@ -15,6 +14,10 @@ public class IssueReport {
 
     private String description;
     private String url;
+    private String email;
+
+    @ManyToOne(optional = false)
+    private User user;
 
     public IssueReport() {
     }
@@ -22,6 +25,12 @@ public class IssueReport {
     public IssueReport(String description, String url) {
         this.description = description;
         this.url = url;
+    }
+
+    public IssueReport(String description, String url, String email) {
+        this.description = description;
+        this.url = url;
+        this.email = email;
     }
 
     public long getId() {
@@ -46,5 +55,21 @@ public class IssueReport {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

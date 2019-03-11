@@ -8,6 +8,8 @@ import java.util.LinkedList;
 @Repository
 public interface IssueReportRepository extends JpaRepository<IssueReport, Long> {
 
-    LinkedList<IssueReport> findByDescription(String description);
+    LinkedList<IssueReport> findAllByDescription(String description);
+
+    LinkedList<IssueReport> findAllByEmail(String email);
 
 }
